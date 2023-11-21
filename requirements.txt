@@ -1,0 +1,13 @@
+trimesh
+numpy
+pyhocon
+icecream
+opencv_python
+tqdm
+torch==1.8.0
+scipy
+PyMCubes
+scikit-image
+imageio
+pytorch3d
+torchvision
