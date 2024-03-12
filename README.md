@@ -1,4 +1,6 @@
-# MOHO: Learning Single-view Hand-held Object Reconstruction with Multi-view Occlusion-Aware Supervision
+# MOHO: Learning Single-view Hand-held Object Reconstruction with Multi-view Occlusion-Aware Supervision, CVPR 2024
+Chenyangguang Zhang, Guanlong Jiao, Yan Di, Gu Wang, Ziqin Huang, Ruida Zhang, Fabian Manhardt, Bowen Fu, Federico Tombari, Xiangyang Ji
+
 
 ## Installation
 ```
@@ -9,17 +11,17 @@ pip install -r requirements.txt
 ## Data Preparation
 
 To keep the training and testing split with IHOI (https://github.com/JudyYe/ihoi), we use their `cache` file (https://drive.google.com/drive/folders/1v6Pw6vrOGIg6HUEHMVhAQsn-JLBWSHWu?usp=sharing). Unzip it and put under `cache/` folder.
-The split we use in DexYCB follows the realsed code of https://github.com/zerchen/gSDF, which needs to be downloaded from https://drive.google.com/drive/folders/1qULhMx1PrnXkihrPacIFzLOT5H2FZSj7 and put in the `cache/` folder as `cache/dexycb_test_s0.json` and `cache/dexycb_train_s0.json`.
+The split we use in DexYCB follows the realsed code of (https://github.com/zerchen/gSDF), which needs to be downloaded from (https://drive.google.com/drive/folders/1qULhMx1PrnXkihrPacIFzLOT5H2FZSj7) and put in the `cache/` folder as `cache/dexycb_test_s0.json` and `cache/dexycb_train_s0.json`.
 Moreover, the `xxx_view_test.txt` in the `cache/` folder is for evaluation of novel view synthesis.
 
-`SOMVideo` is downloaded from our released link (`SOMVideo_ref.zip` and `SOMVideo_sup.tar.gz`).
-`HO3D` is downloaded from https://www.tugraz.at/index.php?id=40231 (we use HO3D(v2)).
-`DexYCB` is downloaded from https://dex-ycb.github.io/.
+`SOMVideo` is downloaded from (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Etb0op97f0lOjYLu58ZM7_wBSfu2v0GRo6OKqAaMwzeztg?e=KbVTR4) for `SOMVideo_ref.zip` and (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/jgl22_mails_tsinghua_edu_cn/EiXuWQMSmbBArOnBH_vPssoBfJpQfz3Nhcq-HZiTnSBOfw?e=Rp6iUz) for `SOMVideo_sup.tar.gz`.
+`HO3D` is downloaded from (https://www.tugraz.at/index.php?id=40231) (we use HO3D(v2)).
+`DexYCB` is downloaded from (https://dex-ycb.github.io/).
 
-`externals/mano` contains `MANO_LEFT.pkl` and `MANO_RIGHT.pkl`, get them from https://mano.is.tue.mpg.de/.
+`externals/mano` contains `MANO_LEFT.pkl` and `MANO_RIGHT.pkl`, get them from (https://mano.is.tue.mpg.de/).
 
-We use PCA maps generated from DINO for generic semantic cues for MOHO, these data is also released on our link (`dino_pca.tar.gz`). Users should unzip this file and put it into the corresponding folder of `HO3D` and `DexYCB`.
-2D hand coverage maps are released on our link (`dexycb_seg.zip` and `ho3d_seg.zip`) for the amodal-mask-weighted supervision when real-world finetuning.
+We use PCA maps generated from DINO for generic semantic cues for MOHO, these data is also released on our link (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Etb0op97f0lOjYLu58ZM7_wBSfu2v0GRo6OKqAaMwzeztg?e=KbVTR4) (`dino_pca.tar.gz`). Users should unzip this file and put it into the corresponding folder of `HO3D` and `DexYCB`.
+2D hand coverage maps are released also on the link above (`dexycb_seg.zip` and `ho3d_seg.zip`) for the amodal-mask-weighted supervision when real-world finetuning.
 
 ## Configuration
 In all config files in `confs/` folder, please make sure the correct `data_dir`, `ref_dir`, `cache_dir` and `seg_dir`.
