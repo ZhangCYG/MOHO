@@ -34,22 +34,23 @@ CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf c
 ```
 
 ## Real-world Finetuning on HO3D and DexYCB
+First, copy the pre-trained checkpoint to the experiment directory of real-world finetuning and rename it as 'ckpt_000000.pth'.
 ```
-CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf confs/ho3d_dino_hand.conf --case finetuning --gpu_num 3
-CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf confs/dexycb_dino_hand.conf --case finetuning --gpu_num 3
+CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf confs/ho3d_dino_hand.conf --case finetuning --gpu_num 3 --is_continue
+CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf confs/dexycb_dino_hand.conf --case finetuning --gpu_num 3 --is_continue
 ```
 
 ## Test
 For mesh inference, 
 ```
-CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_mesh --conf confs/ho3d_dino_hand_test.conf --case finetuning --gpu_num 1
-CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_mesh --conf confs/dexycb_dino_hand_test.conf --case finetuning --gpu_num 1
+CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_mesh --conf confs/ho3d_dino_hand_test.conf --case finetuning --gpu_num 1 --is_continue
+CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_mesh --conf confs/dexycb_dino_hand_test.conf --case finetuning --gpu_num 1 --is_continue
 ```
 
 For novel view synthesis inference,
 ```
-CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_image --conf confs/ho3d_dino_hand_test.conf --case finetuning --gpu_num 1
-CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_image --conf confs/dexycb_dino_hand_test.conf --case finetuning --gpu_num 1
+CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_image --conf confs/ho3d_dino_hand_test.conf --case finetuning --gpu_num 1 --is_continue
+CUDA_VISIBLE_DEVICES=0 python exp_runner_ho_dp_hand.py --mode test_image --conf confs/dexycb_dino_hand_test.conf --case finetuning --gpu_num 1 --is_continue
 ```
 
 ## Evaluation
