@@ -14,7 +14,7 @@ To keep the training and testing split with IHOI (https://github.com/JudyYe/ihoi
 The split we use in DexYCB follows the realsed code of (https://github.com/zerchen/gSDF), which needs to be downloaded from (https://drive.google.com/drive/folders/1qULhMx1PrnXkihrPacIFzLOT5H2FZSj7) and put in the `cache/` folder as `cache/dexycb_test_s0.json` and `cache/dexycb_train_s0.json`.
 Moreover, the `xxx_view_test.txt` in the `cache/` folder is for evaluation of novel view synthesis.
 
-`SOMVideo` is downloaded from (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Etb0op97f0lOjYLu58ZM7_wBSfu2v0GRo6OKqAaMwzeztg?e=KbVTR4) for `SOMVideo_ref.zip` and (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/jgl22_mails_tsinghua_edu_cn/EiXuWQMSmbBArOnBH_vPssoBfJpQfz3Nhcq-HZiTnSBOfw?e=Rp6iUz) for `SOMVideo_sup.tar.gz`.
+`SOMVideo` is composed of `SOMVideo_ref.zip` for the reference HO images and `SOMVideo_sup` for the occlusion free supervisions. `SOMVideo_ref.zip` can be downloaded from (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Etb0op97f0lOjYLu58ZM7_wBSfu2v0GRo6OKqAaMwzeztg?e=KbVTR4). For `SOMVideo_sup`, `test.tar.gz` and `val.tar.gz` can be found in the link above under the `SOMVideo_sup` folder, and `train.tar.gz` is uploaded at (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/jgl22_mails_tsinghua_edu_cn/EkWaMicLv05JsxNswWgSYgIBIoArG9BcA2NOkiAs1SKhsA?e=bCHnt6). When all 3 files are downloaded, you can put them into a same `SOMVideo_sup` folder.
 `HO3D` is downloaded from (https://www.tugraz.at/index.php?id=40231) (we use HO3D(v2)).
 `DexYCB` is downloaded from (https://dex-ycb.github.io/).
 
