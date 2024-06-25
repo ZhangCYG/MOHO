@@ -28,6 +28,10 @@ In all config files in `confs/` folder, please make sure the correct `data_dir`,
 `data_dir` means the path of supervision images. It is the same as `ref_dir` (the path of reference images) in the real-world finetuning on `HO3D` and `DexYCB`, but remains different on `SOMVideo`.
 `seg_dir` is only used in the real-world finetuning for the amodal-mask-weighted supervision.
 
+## Checkpoints
+For reproduction convenience, DexYCB and SOMVideo pre-trained checkpoints can be found at (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Ev0OkTOqd31BlqEHZ37ybXcBFA7BtP_veuSUZ3y_h5Si2Q?e=opwLwL).
+HO3D is a relatively small dataset, users can easily finetune on it with the SOMVideo pre-trained checkpoint with low time consumption. 
+
 ## Synthetic Pre-training on SOMVideo
 ```
 CUDA_VISIBLE_DEVICES=0,1,2 python exp_runner_ho_dp_hand.py --mode train --conf confs/moo_wmask_dp_hand.conf --case pre_training --gpu_num 3
