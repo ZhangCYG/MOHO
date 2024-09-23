@@ -29,7 +29,7 @@ In all config files in `confs/` folder, please make sure the correct `data_dir`,
 `seg_dir` is only used in the real-world finetuning for the amodal-mask-weighted supervision.
 
 ## Checkpoints
-For reproduction convenience, DexYCB and SOMVideo pre-trained checkpoints can be found at (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Ev0OkTOqd31BlqEHZ37ybXcBFA7BtP_veuSUZ3y_h5Si2Q?e=opwLwL).
+For reproduction convenience, DexYCB and SOMVideo pre-trained checkpoints can be found at (https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/zcyg22_mails_tsinghua_edu_cn/Etb0op97f0lOjYLu58ZM7_wBSfu2v0GRo6OKqAaMwzeztg?e=BKlrY6).
 HO3D is a relatively small dataset, users can easily finetune on it with the SOMVideo pre-trained checkpoint with low time consumption. 
 
 ## Synthetic Pre-training on SOMVideo
