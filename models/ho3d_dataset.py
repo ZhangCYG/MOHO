@@ -136,8 +136,8 @@ class HO3DDataset(Dataset):
             pose_all = [cTh_list[i] @ hTo_list[i] for i in range(len(cTh_list))]
             if not test:
                 pose_all = [pose_all[i] for i in sample_list]
-            pose_all = [torch.inverse(pose) for pose in pose_all]
             pose_origin_woinv = [pose.float() for pose in pose_all]
+            pose_all = [torch.inverse(pose) for pose in pose_all]
 
             masks = torch.from_numpy(masks_np.astype(np.float32))   # [inner_iter, H, W, 3]
 

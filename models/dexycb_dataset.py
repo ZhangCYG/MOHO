@@ -184,10 +184,6 @@ class DexYCBDataset(Dataset):
         return new_dict
 
     def check_cache(self, scene, use_ret=False, test=False):
-        '''
-        self.pose_all: inversed pose matrix
-        self.pose_origin_woinv: real pose matrix
-        '''
         if self.scene_idx_cache != scene:
             self.scene_idx_cache = scene
             if isinstance(scene, str):
@@ -231,8 +227,8 @@ class DexYCBDataset(Dataset):
             pose_all = [torch.from_numpy(pose_list[i]) for i in range(len(pose_list))]
             if not test:
                 pose_all = [pose_all[i] for i in sample_list]
-            pose_all = [torch.inverse(pose) for pose in pose_all]
             pose_origin_woinv = [pose.float() for pose in pose_all]
+            pose_all = [torch.inverse(pose) for pose in pose_all]
 
             masks = torch.from_numpy(masks_np.astype(np.float32))   # [inner_iter, H, W, 1]
 
@@ -243,7 +239,7 @@ class DexYCBDataset(Dataset):
             intr_all = torch.stack(intr_list)
             intr_all_inv = torch.stack([torch.inverse(intr.float()) for intr in intr_list])
             pose_origin_woinv = torch.stack(pose_origin_woinv)    # [inner_iter, 4, 4]
-            pose_all = torch.stack(pose_all)                      # [inner_iter, 4, 4]  cTo
+            pose_all = torch.stack(pose_all)                      # [inner_iter, 4, 4]
 
             # read hand pose and hto from cache
             hA_list = self.cache[scene_name]['hA']
@@ -270,7 +266,7 @@ class DexYCBDataset(Dataset):
                 rot = torch.FloatTensor([[[1, 0, 0], [0, -1, 0], [0, 0, -1]]])
                 cTw = geom_utils.rt_to_homo(rot, )
                 cTh = cTw @ wTh
-                cTo = pose_origin_woinv[i]
+                cTo = pose_all[i]
                 hTo = torch.inverse(cTh) @ cTo
                 hTo_list.append(hTo)
             hTo_all = torch.cat(hTo_list)

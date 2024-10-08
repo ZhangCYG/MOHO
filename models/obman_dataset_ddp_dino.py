@@ -137,10 +137,6 @@ class MultiObjectObmanDataset(Dataset):
         return new_dict
 
     def check_cache(self, scene, use_ret=False):
-        '''
-        self.pose_all: inversed pose matrix
-        self.pose_origin_woinv: real pose matrix
-        '''
         if self.scene_idx_cache != scene or use_ret:
             self.scene_idx_cache = scene
             if isinstance(scene, str): 
@@ -164,8 +160,8 @@ class MultiObjectObmanDataset(Dataset):
             metas_lis = sorted(glob(os.path.join(self.data_dir, 'meta/%s*.pkl' % scene_name)))
             pose_all = [self.transf_pose @ pickle.load(open(meta_p, 'rb'))['affine_transform'] \
                     for meta_p in metas_lis]
-            pose_origin_woinv = [torch.tensor(pose).float() for pose in pose_all]
-            pose_all = [torch.inverse(torch.tensor(pose).float()) for pose in pose_all]
+            pose_origin_woinv = [torch.tensor(pose).float() for pose in pose_all]  # oTc
+            pose_all = [torch.inverse(torch.tensor(pose).float()) for pose in pose_all]  # cTo
         
             images = torch.from_numpy(images_np.astype(np.float32)).to(self.device)  # [inner_iter, H, W, 3]
             masks  = torch.from_numpy(masks_np.astype(np.float32)).to(self.device)   # [inner_iter, H, W, 3]
